@@ -17,5 +17,6 @@
 # Note: Before running ansible, make sure you've created the infrastructure with terraform and terraform creates the inventory file at inventory/hosts.ini
 # Running ansible playbook for setting up docker and running docker-compose with pgadmin and postgres services
 
+cd ansible
 ansible-playbook pgadmin.yml -i inventory/hosts.ini --user ubuntu --private-key /path/to/key/eistestweb.pem
 ```
