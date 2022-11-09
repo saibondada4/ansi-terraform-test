@@ -1,0 +1,4 @@
+---
+# defaults file for docker
+default_docker_ip_pool_base: 10.100.0.0/15
+default_docker_ip_pool_size: 254

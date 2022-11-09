@@ -1,0 +1,7 @@
+---
+- name: setup docker and run docker-compose
+  hosts: docker
+  roles:
+    - "docker-setup"
+    - "app-setup-dockercompose"
+  become: true

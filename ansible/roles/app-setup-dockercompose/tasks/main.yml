@@ -1,0 +1,22 @@
+---
+# tasks file for app-setup-dockercompose
+- name: copy Docker Compose files
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/docker-compose.yml
+
+- name: create and change pgadmin directory volume permissions
+  ansible.builtin.file:
+    path: /opt/pgadmin_data
+    state: directory
+    recurse: yes
+    owner: 5050
+    group: 5050
+# use files parameter to use multiple docker-compose.yml files
+- name: deploy Docker Compose stack
+  community.docker.docker_compose:
+    project_src: /opt
+    build: false
+    restarted: true
+    files:
+    - docker-compose.yml
